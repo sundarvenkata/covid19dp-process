@@ -11,7 +11,7 @@ graph TD
 	semanticMergeGenerate --> semanticMerge("<u>Run multi-stage merge in HPC cluster (20-30k files in parallel per day)</u>")
 	semanticMerge --> accession("<u>Provide unique identifiers for the submitted genomic variants</u>")
 	accession --> clustering("<u>Cluster common genomic variants observed across multiple subjects</u>")
-	clustering --> incrementalRelease("<u>Prepare incremental release records for auditing</u>")
+	clustering --> incrementalRelease[("<u>Incremental release records for auditing</u>")]
 	click validateVCF "https://github.com/EBIvariation/covid19dp-submission/blob/3a6f3615bb7697a7fb2b51da79ba8d85d02b84b5/covid19dp_submission/nextflow/submission_workflow.nf#L1"
 	click validateSemantics "https://github.com/EBIvariation/covid19dp-submission/blob/3a6f3615bb7697a7fb2b51da79ba8d85d02b84b5/covid19dp_submission/nextflow/submission_workflow.nf#L22"
 	click semanticMergeGenerate "https://github.com/EBIvariation/covid19dp-submission/blob/3a6f3615bb7697a7fb2b51da79ba8d85d02b84b5/covid19dp_submission/steps/vcf_vertical_concat/run_vcf_vertical_concat_pipeline.py#L41"
