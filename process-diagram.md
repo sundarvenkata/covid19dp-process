@@ -4,7 +4,8 @@
 
 ```mermaid
 graph TD
-    user["Lab submits Covid19 variant data - patients and control group (~200GB per day)"] -->|via submission API|validateVCF{"<u>Syntax validation (parallel)</u>"}
+    user["Lab submits Covid19 variant data - patients and control group (~200GB per day)"] --> |via submission API| depositArea[("<u>OpenStack Swift Object storage</u>")]
+	depositArea --> validateVCF{"<u>Syntax validation (parallel)</u>"}
 	validateVCF --> |pass| validateSemantics{"<u>Semantic validation (parallel)</u>"}
 	validateVCF --> |fail - email submitter| user
 	validateSemantics --> |fail - email submitter| user
