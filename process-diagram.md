@@ -1,3 +1,6 @@
+# Covid-19 data ingestion process 
+#### (click on nodes to navigate to the relevant code)
+
 ```mermaid
 graph TD
     user["Lab submits Covid19 variant data - patients and control group (~200GB per day)"] -->|via submission API|validateVCF{"<u>Syntax validation (parallel)</u>"}
