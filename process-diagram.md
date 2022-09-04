@@ -28,5 +28,4 @@ graph TD
 	click incrementalRelease "https://github.com/EBIvariation/eva-accession/blob/f9863197a232b535a6b2b8915440f1c4059e48dd/eva-accession-release/src/main/java/uk/ac/ebi/eva/accession/release/configuration/batch/steps/CreateIncrementalReleaseStepConfiguration.java#L87"
 	click proteinCoding "https://www.covid19dataportal.org/search/proteins?db=uniprot-covid19&size=15&facets=TAXONOMY:2697049&crossReferencesOption=all"
 	click dataPortal "https://www.covid19dataportal.org/search/sequences?crossReferencesOption=all&overrideDefaultDomain=true&db=eva-variants-covid19&size=15"
-	click kafkaPublish "../mermaid-diagram-2022-09-04-174357.svg"
   ```
