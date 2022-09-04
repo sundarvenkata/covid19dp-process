@@ -4,7 +4,7 @@
 
 ```mermaid
 graph TD
-    user["Lab submits Covid19 variant data - patients and control group (~200GB per day)"] --> |via submission API| depositArea[("<u>OpenStack Swift Object storage</u>")]
+    user["Lab submits Covid19 variant data - patients and control group (~200GB per day)"] --> |via submission API| depositArea[("<u>File deposit area (OpenStack Swift Object storage)</u>")]
 	depositArea --> validateVCF{"<u>Syntax validation (parallel)</u>"}
 	validateVCF --> |pass| validateSemantics{"<u>Semantic validation (parallel)</u>"}
 	validateVCF --> |fail - email submitter| user
@@ -13,8 +13,8 @@ graph TD
 	semanticMergeGenerate --> semanticMerge("<u>Run multi-stage merge in HPC cluster (20-30k files in parallel per day)</u>")
 	semanticMerge --> accession("<u>Provide unique identifiers for the submitted genomic variants</u>")
 	accession --> clustering("<u>Cluster common genomic variants observed across multiple subjects</u>")
-	clustering --> incrementalRelease[("<u>Incremental release records in Mongo for auditing</u>")]
-	incrementalRelease --> kafkaPublish[("<u>Publish to an enterprise Kafka topic for use by other teams</u>")]
+	clustering --> incrementalRelease[("<u>Incremental release records for auditing (MongoDB)</u>")]
+	incrementalRelease --> kafkaPublish[("<u>Publish to an enterprise Kafka topic for use by other teams (Kafka)</u>")]
 	kafkaPublish --> |subscribed by| proteinCoding("<u>Protein coding</u>") 
 	kafkaPublish --> |subscribed by| dataPortal("<u>Covid-19 data portal</u>")
 	kafkaPublish --> |subscribed by| enterpriseSearch("<u>Enterprise search</u>")
